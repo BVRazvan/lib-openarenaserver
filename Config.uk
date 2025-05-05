@@ -1,14 +1,19 @@
 menuconfig LIBOPENARENASERVER
     bool "libopenarenaserver - a server for OpenArena, a community-produced deathmatch FPS based of GPL idTech3 technology"
     default n
-    select LIBPOSIX_EVENTFD
-    select LIBPOSIX_LIBDL
-    select LIBPOSIX_MMAP
-    select LIBPOSIX_SYSINFO
-    select LIBPOSIX_USER
-    select LIBUKVMEM
     select LIBMUSL
     select LIBLWIP
+    select LWIP_UKNETDEV
+	select LWIP_TCP
+	select LWIP_WND_SCALE
+	select LWIP_TCP_KEEPALIVE
+	select LWIP_THREADS
+	select LWIP_SOCKET
+	select LWIP_AUTOIFACE
+	select LWIP_IPV4
+	select LWIP_IPV6
+    select LWIP_DHCP
+	select LWIP_DNS
     select LIBZLIB
 
 if LIBOPENARENASERVER
@@ -18,24 +23,31 @@ config LIBOPENARENASERVER_MAIN_FUNCTION
     default n
 
 config LIBOPENARENASERVER_ASM
+    bool "Provide assembly code"
     default y
 
 config LIBOPENARENASERVER_BOTLIB
+    bool "Provide botlib code"
     default y
 
 config LIBOPENARENASERVER_GAME
+    bool "Provide ingame code"
     default y
 
 config LIBOPENARENASERVER_NULL
+    bool "Provide null device code"
     default y
 
 config LIBOPENARENASERVER_QCOMMON
+    bool "Provide common code for server and client"
     default y
 
 config LIBOPENARENASERVER_SERVER
+    bool "Provide server code"
     default y
 
 config LIBOPENARENASERVER_SYS
+    bool "Provide system code"
     default y
 
 endif
