@@ -1,0 +1,41 @@
+menuconfig LIBOPENARENASERVER
+    bool "libopenarenaserver - a server for OpenArena, a community-produced deathmatch FPS based of GPL idTech3 technology"
+    default n
+    select LIBPOSIX_EVENTFD
+    select LIBPOSIX_LIBDL
+    select LIBPOSIX_MMAP
+    select LIBPOSIX_SYSINFO
+    select LIBPOSIX_USER
+    select LIBUKVMEM
+    select LIBMUSL
+    select LIBLWIP
+    select LIBZLIB
+
+if LIBOPENARENASERVER
+
+config LIBOPENARENASERVER_MAIN_FUNCTION
+    bool "Provide main function"
+    default n
+
+config LIBOPENARENASERVER_ASM
+    default y
+
+config LIBOPENARENASERVER_BOTLIB
+    default y
+
+config LIBOPENARENASERVER_GAME
+    default y
+
+config LIBOPENARENASERVER_NULL
+    default y
+
+config LIBOPENARENASERVER_QCOMMON
+    default y
+
+config LIBOPENARENASERVER_SERVER
+    default y
+
+config LIBOPENARENASERVER_SYS
+    default y
+
+endif
